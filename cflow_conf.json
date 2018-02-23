@@ -1,0 +1,21 @@
+{
+  "Common":{
+    "MysqlConn":"mysql://test:test@localhost:3306/cflow",
+    "Broker":"localhost:9092"
+  },
+  "Scheduler":{
+    "LogDir":"/var/log/go_log",
+    "LogFile":"scheduler.log",
+    "FetchInterval":10,
+    "WorkerTimeOut":1111,
+    "RetryQueueimes":4
+  },
+  "Worker": {
+    "LogDir":"/var/log/go_log",
+    "LogFile":"executer.log",
+    "Parallelism": 32,
+    "HearteatInterval": 10,
+    "Retry": 3,
+    "TaskTimeOut": 60
+  }
+}
