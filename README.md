@@ -1,13 +1,26 @@
 # cflow
- 高可用分布式调度系统, 支持时间调度(crontab功能)和依赖调度
+ 用python实现的高可用可横向扩展的分布式调度系统
+
+# 包含功能
+- 定时调度(类似linux crontab)
+- 依赖调度(满足依赖关系后才会启动任务)
+- 任务格式: 任意命令行可执行程序
+- 高可用，可横向扩展(调度器和执行器均可同时运行多个，完善的重试机制)
 
 # 系统完整流程
+> 调度器获取任务，通过kafka进行任务分发，执行器消费kafka的任务并执行
 
+![scheduler.png](https://github.com/lanfang/cflow/blob/master/docs/scheduler.png)
 
-# 使用步骤
+# 使用方法:
+> cflow命令位于工程目录下
 
+- 安装mysql和etcd，执行 patch.sql
+- 运行调度器: cflow scheduler -c cflow_conf.json --ha
+- 运行执行器(可启多个): cflow executer -c cflow_conf.json
 
-# 配置文件(json格式)
+# 配置文件介绍
+> 配置文件为json格式
 ```
 {
   "Common":{
@@ -43,9 +56,10 @@
 
 
 # 常用命令介绍(cflow)
-## 子命令列表 cflow -h 查看:
-  {run,dep,do_all_job,migrate,version,executer,scheduler}
-
+## 子命令列表 cflow -h:
+```
+{run,dep,do_all_job,migrate,version,kill,executer,scheduler} ...
+```
 ## 重跑命令(cflow run)
 ### cflow run -h
 ```
