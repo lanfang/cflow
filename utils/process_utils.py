@@ -219,13 +219,10 @@ def getServerIp():
     return return_ip
 
 
-g_alarm_user_list = ["17052", "16116", "15011", "16019", "16013", "16172", "16101", "16151"]
-#g_alarm_user_list = ["16101"]
-g_alarm_url = "http://entwechat.codoon.com/users/send"
-g_alarm_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9." \
-                "eyJ0eXBlIjoiYWNjZXNzVG9rZW4iLCJjbGllbnRJZCI6ImQ5YTU4NGMwLTY1ZWMtMTFlNy" \
-                "04YmQ5LTRkYmFjNmMwYmU1MCIsImFnZW50SWQiOiIxMDAwMDEyIiwiaWF0IjoxNDk5NzQ1M" \
-                "zYzLCJleHAiOjE1MzEzMDI5NjN9.5QdMN01nSfSfM3eOO6I1X9gI6Wkxg-UhhWQFMKnGEMk",
+#g_alarm_user_list = ["17052", "16116", "15011", "16019", "16013", "16172", "16101", "16151"]
+g_alarm_user_list = ["16101"]
+g_alarm_url = ""
+g_alarm_token = ""
 
 node = "{}-{}".format(socket.gethostname(), getServerIp())
 def Alert(msg):
